@@ -191,7 +191,23 @@ aq_ins_clean <- aq_ins |>
 
 ```
 
+#1. Explain your inspiration
 
+- For my Intermediate elective, I chose the coal falls and renewables rise visualization, due to my interest in energy usage in the United States. I enjoy the color scheme and how easy to interpret the graph is due to the nice colors and organization. 
+- I think this makes sense for comparing ostracods and copepod abundance throughout time, because it compares two specific variables and shows their trends throughout time. 
+- My x axis will be `date_site` and my y-axis will be `taxon`. It will be colored by `site_full`. 
+
+#2. Plan your figure 
+
+#3. Code your figure 
+
+```{r}
+#| label: 
+
+
+  
+  
+```
 
 
 
