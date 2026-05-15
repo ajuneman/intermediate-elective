@@ -32,6 +32,32 @@ library(patchwork)
 
 #colors 
 library(NatParksPalettes)
+
+#copied from online code 
+
+suppressPackageStartupMessages({
+pacman::p_load(
+  tidyverse, ggtext, showtext, 
+  janitor, scales, glue
+  )
+})
+
+### |- figure size ----
+camcorder::gg_record(
+  dir    = here::here("temp_plots"),
+  device = "png",
+  width  = 6,
+  height = 10,
+  units  = "in",
+  dpi    = 320
+)
+
+install.packages("rstudioapi")
+library(rstudioapi)
+current_theme <- getThemeInfo()
+print(current_theme)
+
+install.packages("devtools")
 ```
 
 ## Data 
@@ -194,21 +220,52 @@ aq_ins_clean <- aq_ins |>
 #1. Explain your inspiration
 
 - For my Intermediate elective, I chose the coal falls and renewables rise visualization, due to my interest in energy usage in the United States. I enjoy the color scheme and how easy to interpret the graph is due to the nice colors and organization. 
-- I think this makes sense for comparing ostracods and copepod abundance throughout time, because it compares two specific variables and shows their trends throughout time. 
-- My x axis will be `date_site` and my y-axis will be `taxon`. It will be colored by `site_full`. 
+- I think this makes sense for comparing ostracods and copepod abundance throughout time, because it compares two specific variables and shows their trends throughout time. I will specificlaly be looking at Devereaux creek. 
+- My x axis will be `date_site` and my y-axis will be `taxon`. It will be colored by `taxon`. 
 
 #2. Plan your figure 
 
 #3. Code your figure 
 
 ```{r}
-#| label: 
+#| label: filtering and tidying data
 
+#filtering dataset for copepod line
+aq_ins_dev_cop <- aq_ins_clean |>  
+  filter(site_full == "Devereux Creek") |>  
+  filter(taxon == "copepod")
 
-  
-  
+#filtering dataset for ostracod line
+aq_ins_dev_ost <- aq_ins_clean |> 
+  filter(site_full == "Devereux Creek") |>  
+  filter(taxon == "ostracod")
 ```
 
+```{r}
+#| label: visualization-params
 
+### |- titles and caption ----
+title_text <- glue(
+  "<span style='font-weight:900; color:{coal_blue};'>Ostracods.&nbsp;</span>",
+  "<span style='font-weight:900; color:{blue};'> Copepods.</span>"
+)
+
+subtitle_text <- glue(
+  "<span style='font-size:12pt; font-weight:400; color:{text_sub};'>",
+  "China's energy pivot is rewriting the power equation<br>",
+  "Share of electricity generation · 2020–2023",
+  "</span>"
+)
+
+caption_text  <- create_dcc_caption(
+  dcc_year    = 2026,
+  dcc_day     = 24,
+  source_text = "NCOS Data · UCSB"
+)
+
+### |- fonts ----
+setup_fonts()
+fonts <- get_font_families()
+```
 
 
