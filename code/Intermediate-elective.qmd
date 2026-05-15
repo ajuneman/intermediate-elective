@@ -188,3 +188,11 @@ aq_ins_clean <- aq_ins |>
   mutate(site_full = fct_reorder(site_full, med_sal,
                                  .fun = "median", .na_rm = TRUE),
          site_full = fct_rev(site_full))
+
+```
+
+
+
+
+
+
