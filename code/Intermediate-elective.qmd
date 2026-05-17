@@ -346,7 +346,7 @@ subtitle_text <- glue(
 #| warning: false
 
 ### |- main plot ----
-p <- aq_ins_dev |>
+graph <- aq_ins_dev |>
   ggplot(aes(x = date, y = ave_lit, color = taxon)) +
 
   # Geom
@@ -397,9 +397,7 @@ p <- aq_ins_dev |>
 
   # Labs
   labs(
-    title = Relationship between Copepod and Ostracod ,
-    subtitle = subtitle_text,
-    caption = caption_text,
+    title = "Copepod and Ostracod abundance in Devereux Creek from 2020-2023",
     x = NULL,
     y = NULL
   ) +
