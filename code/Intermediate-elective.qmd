@@ -209,7 +209,7 @@ aq_ins_clean <- aq_ins |>
 ```{r}
 #| label: filtering and tidying data
 
-#filtering dataset for copepod line
+#filtering dataset for copepod and ostracod line
 aq_ins_dev <- aq_ins_clean |>  
   filter(site_full == "Devereux Creek")
 ```
@@ -220,7 +220,7 @@ aq_ins_dev <- aq_ins_clean |>
 #| label: plot
 #| warning: false
 
-### |- main plot ----
+#creating graph
 p <- aq_ins_dev |>
   ggplot(aes(x = date, y = ave_lit, color = taxon)) +
 
@@ -244,6 +244,7 @@ p <- aq_ins_dev |>
     color = "aquamarine",
     alpha = 0.60
   ) +
+  #adding point colors
   geom_point(
     data = aq_ins_dev |> filter(date == 2020-01-21),
     size = 3.5,
@@ -251,6 +252,7 @@ p <- aq_ins_dev |>
     fill = "pink",
     stroke = 1.8
   ) +
+  #adding point colors 
   geom_point(
     data = aq_ins_dev |> filter(date == 2020-01-21),
     size = 3.5,
@@ -258,7 +260,7 @@ p <- aq_ins_dev |>
     fill = "pink",
     stroke = 1.8
   ) +
-  # Labs
+  # adding labels for axes 
   labs(
     title = "Relationship between Copepod and Ostracod Abundance",
     subtitle = "Data collected at Devereux Creek, 2020-2023",
@@ -268,5 +270,8 @@ p <- aq_ins_dev |>
   
 p
 
-
 ```
+
+# 4. Describe your process 
+
+- This process was extremely diffucult and I did not feel as though I had the tools to use the other persons code, just because of how complicated certain aspects of the code were. It felt extremely stressful, and I wish we could have practiced this more in class. I kept having errors I did not understand, and ended up having to remove most of the code from the website. This visualization has custom colors, and it compared one specific site throughout time. 
