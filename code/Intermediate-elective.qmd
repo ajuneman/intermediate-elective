@@ -246,16 +246,16 @@ p <- aq_ins_dev |>
   ) +
   #adding point colors
   geom_point(
-    data = aq_ins_dev |> filter(date == 2020-01-21),
-    size = 3.5,
+    data = aq_ins_dev |> filter(date == as_date("2020-01-21")),
+    size = 10,
     shape = 21,
     fill = "pink",
     stroke = 1.8
   ) +
   #adding point colors 
   geom_point(
-    data = aq_ins_dev |> filter(date == 2020-01-21),
-    size = 3.5,
+    data = aq_ins_dev |> filter(date == as_date("2023-05-06")),
+    size = 10,
     shape = 21,
     fill = "pink",
     stroke = 1.8
