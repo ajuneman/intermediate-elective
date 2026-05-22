@@ -1,14 +1,32 @@
 # intermediate-elective
 repo for second intermediate elective
 
-General information: 
-- this was the intermediate elective and made a chart for copepod and ostracod 
-in Devereux Creek 
-- this qmd explained the process of filtering code and making the graph, as 
-well as a reflection piece 
+## General information:
 
-Data and file information: 
-- filed needed were: aq_ins_clean and all data needed to make that 
+This repo is for my intermediate elective that is focusing on making a chart comparing copepod and ostracod abundance in Devereux Creek. 
 
-Rendered output: 
-- the rendered output was a PDF 
+This repo is mine (GitHub username: ajuneman). 
+
+## Data and file information: 
+
+```
+├── Group Project Code.qmd
+├── README.md
+├── Timeline Check-in (Week 8)
+│   ├── timeline_check-in.pdf
+│   └── timeline_check-in.qmd
+├── code                                                        # all code is in the code folder
+│   ├── drafts for data visualization.qmd
+│   ├── drafts-for-data-visualization.pdf
+│   └── drafts-for-data-visualization_files
+├── data
+│   ├── NCOS_YSI_Water_Quality_Monitoring_0.csv
+│   ├── NOAA-weather-data.csv
+│   └── YSI_Data_Begin_1.csv
+├── group-project-193DD.Rproj
+└── readmebackup.R
+```
+
+## Rendered output: 
+
+
