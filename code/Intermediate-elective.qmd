@@ -230,7 +230,7 @@ p <- aq_ins_dev |>
   #creating y intercept lines
   geom_hline(
     yintercept = seq(0, 80, by = 20),
-    color = "mediumseagreen",
+    color = "lightgray",
     linewidth = 0.25
   ) +
   # creating copepod line 
@@ -244,25 +244,32 @@ p <- aq_ins_dev |>
   geom_line(
     data = aq_ins_dev |> filter(taxon == "ostracod"),
     linewidth = 1.3,
-    color = "aquamarine",
+    color = "turquoise",
     alpha = 0.60
   ) +
   #adding point colors
   geom_point(
     data = aq_ins_dev |>  filter(date == as_date("2020-01-21")),
-    size = 10,
+    size = 3,
     shape = 21,
-    fill = "pink",
+    fill = "skyblue4",
     stroke = 1.8
   ) +
   #adding point colors 
   geom_point(
     data = aq_ins_dev |> filter(date == as_date("2023-05-06")),
-    size = 10,
+    size = 3,
     shape = 21,
-    fill = "pink",
+    fill = "skyblue4",
     stroke = 1.8
   ) +
+  annotate(
+    "segment", 
+    x = as.Date("2022-01-28"), y = 0,
+    xend = as.Date("2022-01-28"), yend = 43.8666667,
+    color = "lightsalmon1", 
+    linewidth = 0.5, 
+    linetype = "dotted") +
   # adding labels for axes 
   labs(
     title = "Relationship between Copepod and Ostracod Abundance",
@@ -272,8 +279,8 @@ p <- aq_ins_dev |>
   ) + 
   theme_void() +
   theme(
-    plot.background = element_rect(fill = "pink", color = NA), 
-    panel.background = element_rect(fill = "pink", color = NA), 
+    plot.background = element_rect(fill = "skyblue4", color = NA), 
+    panel.background = element_rect(fill = "skyblue4", color = NA), 
     plot.title = element_text(
       size = 28, 
       color = "white", 
@@ -293,18 +300,18 @@ p <- aq_ins_dev |>
       margin = margin(t = 14)), 
     axis.text.x = element_text(
       size = 9, 
-      color = "orange", 
+      color = "lightgray", 
       hjust = 1
     ), 
     axis.text.y = element_text(
       size = 8, 
-      color = "orange", 
+      color = "lightgray", 
       hjust = 1
     ), 
     axis.line = element_blank(), 
     axis.ticks = element_blank(), 
     panel.grid = element_blank(), 
-    legend.position = "none", 
+    #legend.position = "none", 
     plot.margin = margin(t = 20, r = 16, b = 16, l = 20)
   )
   
