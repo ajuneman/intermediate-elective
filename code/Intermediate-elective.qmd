@@ -194,28 +194,31 @@ aq_ins_clean <- aq_ins |>
 
 ```
 
-#1. Explain your inspiration
+# 1. Explain your inspiration
 
 -   For my Intermediate elective, I chose the coal falls and renewables rise visualization, due to my interest in energy usage in the United States. I enjoy the color scheme and how easy to interpret the graph is due to the nice colors and organization.
 -   I think this makes sense for comparing ostracods and copepod abundance throughout time, because it compares two specific variables and shows their trends throughout time. I will specificlaly be looking at Devereaux creek.
 -   My x axis will be `date_site` and my y-axis will be `taxon`. It will be colored by `taxon`.
 
-#2. Plan your figure
+# 2. Plan your figure
 
 ![](images/clipboard-2294278146.jpeg){width="231"}
 
-#3. Code your figure
+# 3. Code your figure
 
 ```{r}
 #| label: filtering and tidying data
 
 #filtering dataset for copepod and ostracod line
 aq_ins_dev <- aq_ins_clean |>  
-  filter(site_full == "Devereux Creek")
+  filter(site_full == "Devereux Creek") |>  
+  filter(taxon %in% c("ostracod", "copepod"))
 ```
 
 ```{r}
-#| label: plotting-graphs 
+#| label: plotting-graphs
+#| fig-height: 9
+#| fig-width: 10
 
 #| label: plot
 #| warning: false
@@ -223,7 +226,7 @@ aq_ins_dev <- aq_ins_clean |>
 #creating graph
 p <- aq_ins_dev |>
   ggplot(aes(x = date, y = ave_lit, color = taxon)) +
-
+  
   #creating y intercept lines
   geom_hline(
     yintercept = seq(0, 80, by = 20),
@@ -246,7 +249,7 @@ p <- aq_ins_dev |>
   ) +
   #adding point colors
   geom_point(
-    data = aq_ins_dev |> filter(date == as_date("2020-01-21")),
+    data = aq_ins_dev |>  filter(date == as_date("2020-01-21")),
     size = 10,
     shape = 21,
     fill = "pink",
@@ -266,7 +269,44 @@ p <- aq_ins_dev |>
     subtitle = "Data collected at Devereux Creek, 2020-2023",
     x = "Date",
     y = "Abundance"
-  ) 
+  ) + 
+  theme_void() +
+  theme(
+    plot.background = element_rect(fill = "pink", color = NA), 
+    panel.background = element_rect(fill = "pink", color = NA), 
+    plot.title = element_text(
+      size = 28, 
+      color = "white", 
+      hjust = 0, 
+      lineheight = 1.1, 
+      margin = margin(t=10, b=6)), 
+    plot.subtitle = element_text(
+      size = 10, 
+      color = "blue", 
+      hjust = 0, 
+      lineheight = 1.4, 
+      margin = margin(b=22)), 
+    plot.caption = element_text(
+      size = 6.5, 
+      color = "red", 
+      hjust = 1, 
+      margin = margin(t = 14)), 
+    axis.text.x = element_text(
+      size = 9, 
+      color = "orange", 
+      hjust = 1
+    ), 
+    axis.text.y = element_text(
+      size = 8, 
+      color = "orange", 
+      hjust = 1
+    ), 
+    axis.line = element_blank(), 
+    axis.ticks = element_blank(), 
+    panel.grid = element_blank(), 
+    legend.position = "none", 
+    plot.margin = margin(t = 20, r = 16, b = 16, l = 20)
+  )
   
 p
 
