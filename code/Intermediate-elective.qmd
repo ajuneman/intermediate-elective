@@ -237,7 +237,7 @@ p <- aq_ins_dev |>
   geom_line(
     data = aq_ins_dev |> filter(taxon == "copepod"),
     linewidth = 1.9,
-    color = "orchid1",
+    color = "tomato1",
     alpha = 1.0
   ) +
   #creating ostracod line
@@ -266,14 +266,42 @@ p <- aq_ins_dev |>
   annotate(
     "segment", 
     x = as.Date("2022-01-28"), y = 0,
-    xend = as.Date("2022-01-28"), yend = 43.8666667,
+    xend = as.Date("2022-01-28"), yend = 40,
     color = "lightsalmon1", 
     linewidth = 0.5, 
     linetype = "dotted") +
+  annotate(
+    "text", 
+    x = as.Date("2022-01-28"), 
+    y = 41.7, 
+    label = "Copepod Abundance Peak", 
+    hjust = 1, 
+    size = 2.9, 
+    color = "lightsalmon1", 
+    lineheight = 1.1
+  ) +
+  annotate(
+    "segment", 
+    x = as.Date("2023-05-06"), y = 0,
+    xend = as.Date("2023-05-06"), yend = 53,
+    color = "lightsalmon1", 
+    linewidth = 0.5, 
+    linetype = "dotted") +
+  annotate(
+    "text", 
+    x = as.Date("2023-05-06"), 
+    y = 55, 
+    label = "Ostracod Abundance Peak", 
+    hjust = 1, 
+    size = 2.9, 
+    color = "lightsalmon1", 
+    lineheight = 1.1
+  ) +
   # adding labels for axes 
   labs(
-    title = "Relationship between Copepod and Ostracod Abundance",
-    subtitle = "Data collected at Devereux Creek, 2020-2023",
+    title = "Copepods abundance falls,",
+    subtitle = "while Ostracod abundance rises",
+    caption = "The shift of invertebrates at Devereux Creek from 2020 to 2023",
     x = "Date",
     y = "Abundance"
   ) + 
@@ -282,20 +310,20 @@ p <- aq_ins_dev |>
     plot.background = element_rect(fill = "skyblue4", color = NA), 
     panel.background = element_rect(fill = "skyblue4", color = NA), 
     plot.title = element_text(
-      size = 28, 
-      color = "white", 
+      size = 22, 
+      color = "tomato1", 
       hjust = 0, 
       lineheight = 1.1, 
       margin = margin(t=10, b=6)), 
     plot.subtitle = element_text(
-      size = 10, 
-      color = "blue", 
+      size = 22, 
+      color = "turquoise", 
       hjust = 0, 
       lineheight = 1.4, 
-      margin = margin(b=22)), 
+      margin = margin(t=10, b=6)), 
     plot.caption = element_text(
-      size = 6.5, 
-      color = "red", 
+      size = 11, 
+      color = "lightgray", 
       hjust = 1, 
       margin = margin(t = 14)), 
     axis.text.x = element_text(
@@ -311,7 +339,7 @@ p <- aq_ins_dev |>
     axis.line = element_blank(), 
     axis.ticks = element_blank(), 
     panel.grid = element_blank(), 
-    #legend.position = "none", 
+    legend.position = "none", 
     plot.margin = margin(t = 20, r = 16, b = 16, l = 20)
   )
   
