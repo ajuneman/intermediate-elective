@@ -29,5 +29,5 @@ This repo is mine (GitHub username: ajuneman).
 
 ## Rendered output: 
 
-The rendered output for the Week 8 Timeline Check-in in this repository is: [here](https://ajuneman.github.io/group-project-193DD/timeline-check-in/timeline_check-in.html). 
+The rendered output for the Intermediate Elective: [here](https://ajuneman.github.io/intermediate-elective/code/Intermediate-elective.html). 
 
