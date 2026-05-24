@@ -3,6 +3,7 @@ title: "Intermediate elective"
 author: "Audrey Juneman"
 format: html
 date: "2026-05-15"
+toc: true
 execute: 
   message: false
   warning: false
