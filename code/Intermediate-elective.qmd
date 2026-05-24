@@ -1,7 +1,7 @@
 ---
 title: "Intermediate elective"
 author: "Audrey Juneman"
-format: pdf
+format: html
 date: "2026-05-15"
 execute: 
   message: false
@@ -349,4 +349,4 @@ p
 
 # 4. Describe your process 
 
-- This process was extremely diffucult and I did not feel as though I had the tools to use the other persons code, just because of how complicated certain aspects of the code were. It felt extremely stressful, and I wish we could have practiced this more in class. I kept having errors I did not understand, and ended up having to remove most of the code from the website. This visualization has custom colors, and it compared one specific site throughout time. 
+- After revising my assignment and taking the professor's suggestions on how to approach this assignment differently, this process was complicated and involved lots of critical thinking and problem solving. I learned that the code should not be copy and pasted from the website, and then edited, but instead pieces should be chosen from the code after understanding their purpose in the graph. The main challenges I encountered were differences in set up between my code and the online code, as the online code had individual data sets for each peak, start, or end, of each line. I only filtered one dataset, requiring me to do additional filtering in the actual ggplot code, which took some troubleshooting. My visualization is different from other visualizations in class, as the color scheme is more coherent and also the plot background and panels are all filled in to be the same color. Another difference is the line segments I made. Overall, I am very proud of my graph and the improvements that have been made, and I felt as though this excersize required an additional understanding of the datasets we were working with. I would definitely say this process was strenuous and extremely complicated, and maybe additional guidance in class on how to follow someone's code would be helpful in preparing for this assignment. 
