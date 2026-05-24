@@ -248,7 +248,7 @@ p <- aq_ins_dev |>
     color = "turquoise",
     alpha = 0.60
   ) +
-  #adding point colors
+  #adding point colors for the inside of the point
   geom_point(
     data = aq_ins_dev |>  filter(date == as_date("2020-01-21")),
     size = 3,
@@ -256,7 +256,7 @@ p <- aq_ins_dev |>
     fill = "skyblue4",
     stroke = 1.8
   ) +
-  #adding point colors 
+  #adding point colors for the inside of the point 
   geom_point(
     data = aq_ins_dev |> filter(date == as_date("2023-05-06")),
     size = 3,
@@ -264,6 +264,7 @@ p <- aq_ins_dev |>
     fill = "skyblue4",
     stroke = 1.8
   ) +
+  # adding segment for copepod peak
   annotate(
     "segment", 
     x = as.Date("2022-01-28"), y = 0,
@@ -271,6 +272,7 @@ p <- aq_ins_dev |>
     color = "lightsalmon1", 
     linewidth = 0.5, 
     linetype = "dotted") +
+   # adding segment label for copepod peak
   annotate(
     "text", 
     x = as.Date("2022-01-28"), 
@@ -281,6 +283,7 @@ p <- aq_ins_dev |>
     color = "lightsalmon1", 
     lineheight = 1.1
   ) +
+  # adding segment for ostracod peak
   annotate(
     "segment", 
     x = as.Date("2023-05-06"), y = 0,
@@ -288,6 +291,7 @@ p <- aq_ins_dev |>
     color = "lightsalmon1", 
     linewidth = 0.5, 
     linetype = "dotted") +
+  # adding segment for ostracod peak
   annotate(
     "text", 
     x = as.Date("2023-05-06"), 
@@ -307,42 +311,49 @@ p <- aq_ins_dev |>
     y = "Abundance"
   ) + 
   theme_void() +
+  # adding colors to make a more coherent theme 
   theme(
+    # making background one color 
     plot.background = element_rect(fill = "skyblue4", color = NA), 
+    # making panel color match backgroudn color 
     panel.background = element_rect(fill = "skyblue4", color = NA), 
+    # editing plot title with colors etc and margins 
     plot.title = element_text(
       size = 22, 
       color = "tomato1", 
       hjust = 0, 
       lineheight = 1.1, 
       margin = margin(t=10, b=6)), 
+    # editing second plot title with colors etc and margins
     plot.subtitle = element_text(
       size = 22, 
       color = "turquoise", 
       hjust = 0, 
       lineheight = 1.4, 
       margin = margin(t=10, b=6)), 
+    # editing plot caption with colors etc and margins
     plot.caption = element_text(
       size = 11, 
       color = "lightgray", 
       hjust = 1, 
       margin = margin(t = 14)), 
+    # editing plot axes marks with colors etc and margins
     axis.text.x = element_text(
       size = 9, 
       color = "lightgray", 
-      hjust = 1
-    ), 
+      hjust = 1), 
+    # editing plot axes marks with colors etc and margins
     axis.text.y = element_text(
       size = 8, 
       color = "lightgray", 
-      hjust = 1
-    ), 
+      hjust = 1), 
     axis.line = element_blank(), 
     axis.ticks = element_blank(), 
     panel.grid = element_blank(), 
+    # removing legend
     legend.position = "none", 
-    plot.margin = margin(t = 20, r = 16, b = 16, l = 20)
-  )
+    # making plot margins better
+    plot.margin = margin(t = 20, r = 16, b = 16, l = 20))
   
 p
 
